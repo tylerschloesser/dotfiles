@@ -20,9 +20,9 @@ call plug#begin('~/.vim/plugged')
 
   " syntax checking
   Plug 'scrooloose/syntastic'
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
+  "set statusline+=%#warningmsg#
+  "set statusline+=%{SyntasticStatuslineFlag()}
+  "set statusline+=%*
   let g:syntastic_always_populate_loc_list = 1
   let g:syntastic_auto_loc_list = 1
   let g:syntastic_check_on_open = 1
@@ -33,6 +33,15 @@ call plug#begin('~/.vim/plugged')
 
   " ctrlp
   Plug 'ctrlpvim/ctrlp.vim'
+  let g:ctrlp_map = '<c-p>'
+  let g:ctrlp_cmd = 'CtrlP'
+  if exists("g:ctrl_user_command")
+    unlet g:ctrlp_user_command
+  endif
+  set wildignore+=*/eclipse-bin/*
+  set wildignore+=*/bin/*
+  " https://github.com/kien/ctrlp.vim/issues/490
+  let g:ctrlp_clear_cache_on_exit = 0
 
   " git wrapper
   Plug 'tpope/vim-fugitive'
@@ -42,6 +51,11 @@ call plug#begin('~/.vim/plugged')
 
   " insert/delete brackets, parens and quotes in pair
   Plug 'jiangmiao/auto-pairs'
+
+  "Plug 'vim-airline/vim-airline'
+  "Plug 'vim-airline/vim-airline-themes'
+  "Plug 'edkolev/tmuxline.vim'
+  "let g:airline#extensions#tabline#enabled = 1
 
 call plug#end()
 
@@ -64,6 +78,9 @@ set autoindent
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+
+" 4 space tabs for java
+autocmd FileType java setlocal tabstop=4 shiftwidth=4
 
 " show command in last line of screen
 set showcmd
@@ -127,6 +144,7 @@ function! FileSize()
 endfunction
 
 set laststatus=2
+
 set statusline=%f " Path to the file in the buffer, as typed or relative to current directory.
 set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}, " file encoding
 set statusline+=%{&ff}] " file format
@@ -143,49 +161,9 @@ set statusline+=\ %P " precent through file
 autocmd BufRead,BufNewFile *.js.jspf set filetype=javascript
 autocmd BufRead,BufNewFile *.js.jsp set filetype=javascript
 
-" CtrlP stuff
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-if exists("g:ctrl_user_command")
-    unlet g:ctrlp_user_command
-endif
-set wildignore+=*/eclipse-bin/*
-set wildignore+=*/bin/*
-
-let g:SuperTabDefaultCompletionType = "<c-n>"
-
 highlight Pmenu ctermbg=grey gui=bold
 highlight PmenuSel ctermbg=red gui=bold
 
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-
-" https://github.com/kien/ctrlp.vim/issues/490
-let g:ctrlp_clear_cache_on_exit = 0
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-"function! SetJavaTagFile()
-"    let root = system('git rev-parse --show-toplevel')[:-2]
-"    echom 'heyroot=' . root
-"    echom v:shell_error
-"    if !v:shell_error
-"        let tagfile = root . '/.tags'
-"        echom tagfile
-"        if (filereadable(tagfile))
-"        endif
-"    endif
-"endfunction
-"
-"augroup javatags
-"    autocmd! BufEnter *.java :call SetJavaTagFile()
-"augroup END
 set tags=./tags,tags;/
 
 " whitespace
@@ -225,11 +203,6 @@ filetype plugin indent on
 
 let g:EclimCompletionMethod = 'omnifunc'
 
-" load nerdtree on startup
-" autocmd vimenter * NERDTree
-
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 let g:C_Ctrl_j = 'off'
 "nnoremap <C-j>I :JavaImportOrganize<CR>
 "nnoremap <C-j>i :JavaImport<CR>
@@ -244,22 +217,16 @@ set modeline
 " ===========================================================================================
 " ===========================================================================================
 "
-let mapleader=" "
+let mapleader="<space>"
 
 " double excape saves
 map <Esc><Esc> ;w<CR>
 
 " git (fugative.vim)
 nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gb :Glbame<CR>
+nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gd :Gdiff<CR>
-
-let g:NERDTreeWinSize = 40
-nnoremap <leader>nf :NERDTreeFind<cr>
-nnoremap <leader>nt :NERDTreeToggle<cr>
-"nnoremap <c-n> :NERDTreeToggle<CR>
-
 
 function! GetVisualSelection()
   " Why is this not a built-in Vim script function?!
