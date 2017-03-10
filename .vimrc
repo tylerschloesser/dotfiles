@@ -1,205 +1,112 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" disable vi compatibility
+set nocompatible
 
-" load vim-plug
+" load vim-plug if it doesn't exist
 if empty(glob("~/.vim/autoload/plug.vim"))
-    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+  execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
+" load plugins
 call plug#begin('~/.vim/plugged')
+
+  " code-completion engine - requires installed component
+  " https://github.com/Valloric/YouCompleteMe#installation
   Plug 'Valloric/YouCompleteMe'
+  let g:ycm_seed_identifiers_with_syntax = 1
+  let g:ycm_collect_identifiers_from_tags_files = 1
+
+  " toggle quickfix list and location-list
+  Plug 'Valloric/ListToggle'
+
+  " syntax checking
+  Plug 'scrooloose/syntastic'
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_auto_loc_list = 1
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+
+  " better medium-distance motion
+  Plug 'justinmk/vim-sneak'
+
+  " ctrlp
+  Plug 'ctrlpvim/ctrlp.vim'
+
+  " git wrapper
+  Plug 'tpope/vim-fugitive'
+
+  " search/substitute multiple variants of a word
+  Plug 'tpope/vim-abolish'
+
+  " insert/delete brackets, parens and quotes in pair
+  Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
 
+" backup options
+set backup
+set backupdir=~/.vim/backup
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" enable syntax highlighting
+syntax on
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" backspace behavior
+set backspace=indent,eol,start
 
-"Bundle 'Valloric/YouCompleteMe'
-Bundle 'Valloric/ListToggle'
-Bundle 'scrooloose/syntastic'
-
-Bundle 'scrooloose/nerdtree'
-Bundle 'Xuyuanp/nerdtree-git-plugin'
-
-" https://github.com/justinmk/vim-sneak
-Plugin 'justinmk/vim-sneak'
-
-Plugin 'https://github.com/kien/ctrlp.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-abolish'
-
-" https://github.com/jiangmiao/auto-pairs
-Plugin 'jiangmiao/auto-pairs'
-
-"" plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
-"" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-
-set background=dark
-
-" if has("gui_running")
-"
-"     " set default window size
-"     set lines=50
-"     set columns=100
-"
-"     if has("gui_gtk2")
-"         set guifont=Inconsolata\ 12
-"     elseif has("gui_win32")
-"         set guifont=Consolas:h11:cANSI
-"     endif
-"
-"     colorscheme solarized
-"
-"     " gvim remove menu bar, toolbar, and scroll bar
-"     set guioptions-=m
-"     set guioptions-=T
-"     set guioptions-=r
-"
-"    set guiheadroom=0
-" endif
-
-" keep temp and backup files in one place
-if has("unix")
-    set backup
-    set backupdir=~/.vim/backup
-    set directory=~/.vim/tmp
-elseif hostname() == "TYLER-PC"
-    set backup
-    set backupdir=D:\Tyler\.vim\backup
-    set directory=D:\Tyler\.vim\tmp
-endif
-
-syntax enable
-set bs=2
-
-" replace tabs with spaces
+" tab behavior
 set expandtab
 set smarttab
-set tabstop=4
-set shiftwidth=4
-
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
-
 set autoindent
 
+" default 2 spaces for tabs
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 
-
-" This shows what you are typing as a command
+" show command in last line of screen
 set showcmd
-
-" show the cursors current position with line+column and percentage of buffer
-" better than having to use CTRL+G
-set ruler
-
-" disable those annoying beeps....
-set noerrorbells visualbell t_vb=
-au GUIEnter * set visualbell t_vb=
-
-set backspace=2
 
 " show line numbers
 set number
 set relativenumber
 
+" no line wrapping
+set nowrap
+
 " ignore case for lower case words
 set ignorecase
 set smartcase
 
+" customize search
 set incsearch
 set hlsearch
 
-"set autochdir
-
-" Mappings
-" Next Tab
-nnoremap <silent> <C-Right> :tabnext<CR>
-" Previous Tab
-nnoremap <silent> <C-Left> :tabprevious<CR>
-" New Tab
-nnoremap <silent> <C-t> :tabnew<CR>
-
-nnoremap <silent> <A-h> :tabprevious<CR>
-nnoremap <silent> <A-l> :tabnext<CR>
-
-" move down one visual line, rather than actual line (for wrapping)
-"nnoremap <silent> k gk
-"nnoremap <silent> j gj
-
-" Create Blank Newlines and stay in Normal mode
+" create newlines while staying in normal mode
 nnoremap <silent> zj o<Esc>
 nnoremap <silent> zk O<Esc>
 
-" Search mappings: These will make it so that going to the next one in a
-" search will center on the line it's found in.
+" center current result while moving through search results
 map N Nzz
 map n nzz
 
-" Swap ; and :
+" swap ; and :
 nnoremap ; :
 nnoremap : ;
 
-" Insert empty line.
-nmap <A-o> o<ESC>k
-nmap <A-O> O<ESC>j
-
-" Control l unhighlights
+" ctrl+l removes highlight(s)
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-" on entering insert mode, disable relative line numbers
-set timeoutlen=1000 ttimeoutlen=-1
+" disable relative line numbers in insert mode
+set timeoutlen=500
 highlight LineNr ctermfg=darkyellow
-set noesckeys
 
+" don't add multiple spaces after eol punctuation
+set nojoinspaces
 
-if has("unix")
-    "let s:user = substitute(system("whoami"), '\n', '', '')
-"if hostname() == "TYLER-UBUNTU" || s:user == "schlo161"
-    " fix for VM and school computers
-    autocmd InsertEnter * :set nornu | set nu
-    autocmd InsertLeave * :set nu | set rnu
-else
-    autocmd InsertEnter * :set nornu
-    autocmd InsertLeave * :set rnu
-endif
+autocmd InsertEnter * :set nornu
+autocmd InsertLeave * :set rnu
 
 set foldmethod=manual
 
