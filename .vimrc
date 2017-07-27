@@ -1,4 +1,3 @@
-" disable vi compatibility
 set nocompatible
 
 " load vim-plug if it doesn't exist
@@ -57,11 +56,25 @@ call plug#begin('~/.vim/plugged')
   "Plug 'edkolev/tmuxline.vim'
   "let g:airline#extensions#tabline#enabled = 1
 
+  " javascript/jsx syntax highlighting
+  Plug 'pangloss/vim-javascript'
+  Plug 'MaxMEllon/vim-jsx-pretty'
+
+  " highlight matching html/xml tags
+  Plug 'Valloric/MatchTagAlways'
+
+  " auto close html tag
+  Plug 'alvan/vim-closetag'
+
+  "Plug 'chriskempson/base16-vim'
+  Plug 'altercation/vim-colors-solarized'
+
 call plug#end()
 
 " backup options
 set backup
 set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
 
 " enable syntax highlighting
 syntax on
@@ -90,7 +103,7 @@ set number
 set relativenumber
 
 " no line wrapping
-set nowrap
+"set nowrap
 
 " ignore case for lower case words
 set ignorecase
@@ -217,7 +230,7 @@ set modeline
 " ===========================================================================================
 " ===========================================================================================
 "
-let mapleader="<space>"
+let mapleader=" "
 
 " double excape saves
 map <Esc><Esc> ;w<CR>
@@ -277,3 +290,30 @@ let g:EclimLoggingDisabled = 1
 set re=1
 set ttyfast
 set lazyredraw
+
+" highlight matching html elements in JSX
+"let g:mta_filetypes['javascript.jsx'] = 1
+let g:mta_filetypes = {
+        \ 'html' : 1,
+        \ 'xhtml' : 1,
+        \ 'xml' : 1,
+        \ 'jinja' : 1,
+        \ 'javascript.jsx' : 1,
+        \}
+
+nnoremap <leader>% :MtaJumpToOtherTag<cr>
+
+"hi Tag        ctermfg=04
+"hi xmlTag     ctermfg=04
+"hi xmlTagName ctermfg=04
+"hi xmlEndTag  ctermfg=04
+
+"colorscheme base16-default-dark
+"syntax enable
+"set background=dark
+"let g:solarized_visibility = "high"
+"let g:solarized_contrast = "high"
+"colorscheme solarized
+"let g:solarized_termcolors=16
+
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
