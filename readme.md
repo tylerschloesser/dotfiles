@@ -10,13 +10,14 @@
     ```
     ./install-vimrc.sh
     ```
-3. install [Vundle](https://github.com/VundleVim/Vundle.vim)
+3. install [vim-plug](https://github.com/junegunn/vim-plug)
     ```
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     ```
-4. install Vundle plugins
+4. install vim-plug plugins
     ```
-    vim +BundleInstall +qall
+    vim +PlugInstall +qall
     ```
 5. install [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#installation)
 
