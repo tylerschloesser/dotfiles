@@ -69,6 +69,12 @@ call plug#begin('~/.vim/plugged')
   "Plug 'chriskempson/base16-vim'
   Plug 'altercation/vim-colors-solarized'
 
+  " nerdtree
+  Plug 'https://github.com/scrooloose/nerdtree.git'
+
+  " jekyll syntax
+  Plug 'https://github.com/PProvost/vim-markdown-jekyll'
+
 call plug#end()
 
 " backup options
@@ -91,6 +97,9 @@ set autoindent
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+
+" override vim-markdown-jekyll setting sw and ts to 3
+autocmd FileType markdown setlocal shiftwidth=2 tabstop=2
 
 " 4 space tabs for java
 autocmd FileType java setlocal tabstop=4 shiftwidth=4
@@ -269,6 +278,8 @@ vnoremap <leader>jr :<c-u>JavaRename <c-r>=GetVisualSelection()<cr>
 vnoremap <leader>jsc :JavaSearchContext<CR>
 
 nnoremap <Leader>ev :tabnew<CR>:e $MYVIMRC<CR>
+
+nnoremap <Leader>n :NERDTreeToggle<CR>
 
 if has ('autocmd') " Remain compatible with earlier versions
  augroup vimrc     " Source vim configuration upon save
