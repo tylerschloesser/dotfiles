@@ -75,6 +75,8 @@ call plug#begin('~/.vim/plugged')
   " jekyll syntax
   Plug 'https://github.com/PProvost/vim-markdown-jekyll'
 
+  " EditorConfig
+  Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " backup options
