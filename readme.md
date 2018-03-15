@@ -26,8 +26,7 @@
 
 ## installation
 
-1. install [prezto](https://github.com/sorin-ionescu/prezto)
-2. run install script
-    ```
-    ./install-zshrc.sh
-    ```
+Add this to .zshrc
+```sh
+source "${ZDOTDIR:-$HOME}/dotfiles/zshrc-common"
+```

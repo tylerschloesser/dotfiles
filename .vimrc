@@ -51,10 +51,13 @@ call plug#begin('~/.vim/plugged')
   " insert/delete brackets, parens and quotes in pair
   Plug 'jiangmiao/auto-pairs'
 
-  "Plug 'vim-airline/vim-airline'
-  "Plug 'vim-airline/vim-airline-themes'
-  "Plug 'edkolev/tmuxline.vim'
-  "let g:airline#extensions#tabline#enabled = 1
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline_powerline_fonts = 1
+  "let g:airline#extensions#tabline#buffer_idx_mode = 1
+  let g:airline#extensions#tabline#buffer_nr_show = 1
+  set t_Co=256
 
   " javascript/jsx syntax highlighting
   Plug 'pangloss/vim-javascript'
@@ -77,7 +80,17 @@ call plug#begin('~/.vim/plugged')
 
   " EditorConfig
   Plug 'editorconfig/editorconfig-vim'
+
+  Plug 'mtscout6/syntastic-local-eslint.vim'
+
+  Plug 'tpope/vim-jdaddy'
+
+  Plug 'https://github.com/vim-scripts/restore_view.vim'
+
 call plug#end()
+
+set viewoptions=cursor,folds,slash,unix
+" let g:skipview_files = ['*\.vim']
 
 " backup options
 set backup
@@ -102,6 +115,7 @@ set shiftwidth=2
 
 " override vim-markdown-jekyll setting sw and ts to 3
 autocmd FileType markdown setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 
 " 4 space tabs for java
 autocmd FileType java setlocal tabstop=4 shiftwidth=4
@@ -282,6 +296,8 @@ vnoremap <leader>jsc :JavaSearchContext<CR>
 nnoremap <Leader>ev :tabnew<CR>:e $MYVIMRC<CR>
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "right"
+
 
 if has ('autocmd') " Remain compatible with earlier versions
  augroup vimrc     " Source vim configuration upon save
@@ -330,3 +346,5 @@ nnoremap <leader>% :MtaJumpToOtherTag<cr>
 "let g:solarized_termcolors=16
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+au BufNewFile,BufRead *.ejs set filetype=html
