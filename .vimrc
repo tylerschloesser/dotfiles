@@ -8,6 +8,8 @@ endif
 " load plugins
 call plug#begin('~/.vim/plugged')
 
+  Plug 'jparise/vim-graphql'
+
   " code-completion engine - requires installed component
   " https://github.com/Valloric/YouCompleteMe#installation
   Plug 'Valloric/YouCompleteMe'
@@ -345,6 +347,11 @@ nnoremap <leader>% :MtaJumpToOtherTag<cr>
 "colorscheme solarized
 "let g:solarized_termcolors=16
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|my-first-app\/ios'
 
 au BufNewFile,BufRead *.ejs set filetype=html
+
+"https://shapeshed.com/vim-netrw/
+"
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 25
