@@ -20,14 +20,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'Valloric/ListToggle'
 
   " syntax checking
-  Plug 'scrooloose/syntastic'
-  "set statusline+=%#warningmsg#
-  "set statusline+=%{SyntasticStatuslineFlag()}
-  "set statusline+=%*
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 0
+  " Plug 'scrooloose/syntastic'
+  " "set statusline+=%#warningmsg#
+  " "set statusline+=%{SyntasticStatuslineFlag()}
+  " "set statusline+=%*
+  " let g:syntastic_always_populate_loc_list = 1
+  " let g:syntastic_auto_loc_list = 1
+  " let g:syntastic_check_on_open = 1
+  " let g:syntastic_check_on_wq = 0
 
   " better medium-distance motion
   Plug 'justinmk/vim-sneak'
@@ -83,13 +83,21 @@ call plug#begin('~/.vim/plugged')
   " EditorConfig
   Plug 'editorconfig/editorconfig-vim'
 
-  Plug 'mtscout6/syntastic-local-eslint.vim'
+  " Plug 'mtscout6/syntastic-local-eslint.vim'
 
   Plug 'tpope/vim-jdaddy'
 
   Plug 'https://github.com/vim-scripts/restore_view.vim'
 
+  Plug 'leafgarland/typescript-vim'
+  Plug 'peitalin/vim-jsx-typescript'
+
 call plug#end()
+
+"augroup SyntaxSettings
+"    autocmd!
+"    autocmd BufNewFile,BufRead *.tsx set filetype=typescript
+"augroup END
 
 set viewoptions=cursor,folds,slash,unix
 " let g:skipview_files = ['*\.vim']
@@ -120,7 +128,7 @@ autocmd FileType markdown setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 
 " 4 space tabs for java
-autocmd FileType java setlocal tabstop=4 shiftwidth=4
+"autocmd FileType java setlocal tabstop=4 shiftwidth=4
 
 " show command in last line of screen
 set showcmd
@@ -315,7 +323,7 @@ augroup BgHighlight
     autocmd WinLeave * set nocul
 augroup END
 
-let g:EclimLoggingDisabled = 1
+"let g:EclimLoggingDisabled = 1
 
 " fix slow syntax highlighting in ruby files
 set re=1
@@ -347,7 +355,11 @@ nnoremap <leader>% :MtaJumpToOtherTag<cr>
 "colorscheme solarized
 "let g:solarized_termcolors=16
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|my-first-app\/ios'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|my-first-app\/ios'
+
+"https://github.com/kien/ctrlp.vim/issues/234
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=40
 
 au BufNewFile,BufRead *.ejs set filetype=html
 
@@ -355,3 +367,41 @@ au BufNewFile,BufRead *.ejs set filetype=html
 "
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 25
+let g:ctrlp_working_path_mode=''
+
+nnoremap <Leader>jq :%!jq .<CR>
+
+function! Wipeout()
+  " list of *all* buffer numbers
+  let l:buffers = range(1, bufnr('$'))
+
+  " what tab page are we in?
+  let l:currentTab = tabpagenr()
+  try
+    " go through all tab pages
+    let l:tab = 0
+    while l:tab < tabpagenr('$')
+      let l:tab += 1
+
+      " go through all windows
+      let l:win = 0
+      while l:win < winnr('$')
+        let l:win += 1
+        " whatever buffer is in this window in this tab, remove it from
+        " l:buffers list
+        let l:thisbuf = winbufnr(l:win)
+        call remove(l:buffers, index(l:buffers, l:thisbuf))
+      endwhile
+    endwhile
+
+    " if there are any buffers left, delete them
+    if len(l:buffers)
+      execute 'bwipeout' join(l:buffers)
+    endif
+  finally
+    " go back to our original tab page
+    execute 'tabnext' l:currentTab
+  endtry
+endfunction
+
+set pastetoggle=<Leader>p
