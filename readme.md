@@ -1,6 +1,12 @@
-# .vimrc
+last tested on ubuntu 18
 
-## installation
+# powerline
+
+0. install [powerline](https://powerline.readthedocs.io/en/latest/) ([github](https://github.com/powerline/powerline))
+0. install [powerline fonts](https://github.com/powerline/fonts)
+
+# vim
+
 0. setup ssh key
 1. clone repo
     ```
@@ -21,15 +27,9 @@
     ```
 5. install [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#installation)
 
-# powerline
-
-0. install [powerline](https://powerline.readthedocs.io/en/latest/) ([github](https://github.com/powerline/powerline))
-0. install [powerline fonts](https://github.com/powerline/fonts)
 
 
 # zsh
-
-## installation
 
 0. Install prezto https://github.com/sorin-ionescu/prezto
 
