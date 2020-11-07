@@ -48,3 +48,7 @@ source "${ZDOTDIR:-$HOME}/.zshrc-common"
 # tmux
 
 ln -s `readlink -f .tmux.conf` ~/.tmux.conf
+
+# node
+
+https://github.com/nodesource/distributions/blob/master/README.md
