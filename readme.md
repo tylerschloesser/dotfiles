@@ -21,6 +21,11 @@
     ```
 5. install [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#installation)
 
+# powerline
+
+0. install [powerline](https://github.com/powerline/powerline)
+0. install [powerline fonts](https://github.com/powerline/fonts)
+
 
 # .zshrc
 
@@ -33,3 +38,7 @@
 ```sh
 source "${ZDOTDIR:-$HOME}/dotfiles/zshrc-common"
 ```
+
+# tmux
+
+ln -s `readlink -f .tmux.conf` ~/.tmux.conf
