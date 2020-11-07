@@ -8,4 +8,4 @@ bindkey "^R" history-incremental-search-backward
 #
 #zplug "b4b4r07/zsh-vimode-visual"
 
-echo "Loaded zshrc-common"
+#echo "Loaded zshrc-common"

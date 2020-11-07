@@ -27,16 +27,22 @@
 0. install [powerline fonts](https://github.com/powerline/fonts)
 
 
-# .zshrc
+# zsh
 
 ## installation
 
 0. Install prezto https://github.com/sorin-ionescu/prezto
 
+0. Link zshrc-common
+
+```
+ln -s `readlink -f zshrc-common` ~/.zshrc-common
+```
+
 0. Add this to .zshrc
 
 ```sh
-source "${ZDOTDIR:-$HOME}/dotfiles/zshrc-common"
+source "${ZDOTDIR:-$HOME}/.zshrc-common"
 ```
 
 # tmux
