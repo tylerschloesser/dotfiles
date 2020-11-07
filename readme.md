@@ -57,3 +57,7 @@ ln -s `readlink -f .tmux.conf` ~/.tmux.conf
 ```
 nvm install --lts
 ```
+
+# chrome
+
+0. install [react developer tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
