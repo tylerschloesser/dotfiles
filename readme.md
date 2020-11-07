@@ -23,7 +23,7 @@
 
 # powerline
 
-0. install [powerline](https://github.com/powerline/powerline)
+0. install [powerline](https://powerline.readthedocs.io/en/latest/) ([github](https://github.com/powerline/powerline))
 0. install [powerline fonts](https://github.com/powerline/fonts)
 
 
