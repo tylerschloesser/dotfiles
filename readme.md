@@ -53,3 +53,7 @@ ln -s `readlink -f .tmux.conf` ~/.tmux.conf
 
 0. use [nvm](https://github.com/nvm-sh/nvm)
 0. otherwise check [nodesource](https://github.com/nodesource/distributions/blob/master/README.md)
+0. install lts
+```
+nvm install --lts
+```
