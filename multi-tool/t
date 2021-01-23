@@ -1,0 +1,1 @@
+NODE_OPTIONS=--enable-source-maps node /Users/tschloes/git-repos/dotfiles/multi-tool/dist/index.js "$@"
