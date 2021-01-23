@@ -43,6 +43,10 @@ call plug#begin('~/.vim/plugged')
   set wildignore+=*/bin/*
   " https://github.com/kien/ctrlp.vim/issues/490
   let g:ctrlp_clear_cache_on_exit = 0
+"let g:ctrlp_working_path_mode=''
+
+  nnoremap <Leader>m :CtrlPMRU<CR>
+  nnoremap <Leader>b :CtrlPBuffer<CR>
 
   " git wrapper
   Plug 'tpope/vim-fugitive'
@@ -367,7 +371,6 @@ au BufNewFile,BufRead *.ejs set filetype=html
 "
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 25
-let g:ctrlp_working_path_mode=''
 
 nnoremap <Leader>jq :%!jq .<CR>
 
@@ -405,3 +408,11 @@ function! Wipeout()
 endfunction
 
 set pastetoggle=<Leader>p
+
+" allow mouse to resize
+" https://vi.stackexchange.com/a/521
+" set mouse=n
+" set ttymouse=xterm2
+
+nnoremap <leader>a :YcmCompleter GoToDefinition<CR>
+" nnoremap <leader>d :YcmCompleter GetDoc<CR>
