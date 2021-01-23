@@ -13,6 +13,8 @@ async function main() {
     const dir = args[2] ?? '.'
     console.log('creating typescript template with name', name)
 
+    await fs.promises.mkdir(dir, { recursive: true })
+
     await fs.promises.writeFile(path.join(dir, `${name}.tsx`),`
 import React from 'react'
 
@@ -49,8 +51,9 @@ FirstStory.args = {
   /* the args you need here will depend on your component */
 };
       `.trim())
+  } else {
+    throw Error('invalid tool')
   }
-
 }
 
 main()
