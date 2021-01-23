@@ -18,6 +18,8 @@ async function main() {
     await fs.promises.writeFile(path.join(dir, `${name}.tsx`),`
 import React from 'react'
 
+import './${name}.scss'
+
 export interface ${name}Props {
 }
 
@@ -36,6 +38,7 @@ import React, { ComponentProps } from 'react'
 import { Story  } from '@storybook/react/types-6-0'
 
 import { ${name} } from './${name}'
+import './${name}.stories.scss'
 
 export default {
   title: '${name}',
@@ -51,6 +54,9 @@ FirstStory.args = {
   /* the args you need here will depend on your component */
 };
       `.trim())
+
+    await fs.promises.writeFile(path.join(dir, `${name}.scss`), '')
+    await fs.promises.writeFile(path.join(dir, `${name}.stories.scss`), '')
   } else {
     throw Error('invalid tool')
   }
