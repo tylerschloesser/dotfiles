@@ -308,8 +308,6 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|my-first-app\/ios'
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 
-au BufNewFile,BufRead *.ejs set filetype=html
-
 "https://shapeshed.com/vim-netrw/
 "
 let g:netrw_liststyle = 3
