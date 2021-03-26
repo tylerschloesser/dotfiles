@@ -280,7 +280,6 @@ set ttyfast
 set lazyredraw
 
 " highlight matching html elements in JSX
-"let g:mta_filetypes['javascript.jsx'] = 1
 let g:mta_filetypes = {
         \ 'html' : 1,
         \ 'xhtml' : 1,
@@ -290,19 +289,6 @@ let g:mta_filetypes = {
         \}
 
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
-
-"hi Tag        ctermfg=04
-"hi xmlTag     ctermfg=04
-"hi xmlTagName ctermfg=04
-"hi xmlEndTag  ctermfg=04
-
-"colorscheme base16-default-dark
-"syntax enable
-"set background=dark
-"let g:solarized_visibility = "high"
-"let g:solarized_contrast = "high"
-"colorscheme solarized
-"let g:solarized_termcolors=16
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|my-first-app\/ios'
 
@@ -315,48 +301,4 @@ let g:ctrlp_max_depth=40
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 25
 
-nnoremap <Leader>jq :%!jq .<CR>
-
-function! Wipeout()
-  " list of *all* buffer numbers
-  let l:buffers = range(1, bufnr('$'))
-
-  " what tab page are we in?
-  let l:currentTab = tabpagenr()
-  try
-    " go through all tab pages
-    let l:tab = 0
-    while l:tab < tabpagenr('$')
-      let l:tab += 1
-
-      " go through all windows
-      let l:win = 0
-      while l:win < winnr('$')
-        let l:win += 1
-        " whatever buffer is in this window in this tab, remove it from
-        " l:buffers list
-        let l:thisbuf = winbufnr(l:win)
-        call remove(l:buffers, index(l:buffers, l:thisbuf))
-      endwhile
-    endwhile
-
-    " if there are any buffers left, delete them
-    if len(l:buffers)
-      execute 'bwipeout' join(l:buffers)
-    endif
-  finally
-    " go back to our original tab page
-    execute 'tabnext' l:currentTab
-  endtry
-endfunction
-
-set pastetoggle=<Leader>p
-
-" allow mouse to resize
-" https://vi.stackexchange.com/a/521
-" set mouse=n
-" set ttymouse=xterm2
-
 nnoremap <leader>a :YcmCompleter GoToDefinition<CR>
-" nnoremap <leader>d :YcmCompleter GetDoc<CR>
-"
