@@ -90,9 +90,6 @@ call plug#begin('~/.vim/plugged')
   " nerdtree
   Plug 'https://github.com/scrooloose/nerdtree.git'
 
-  " jekyll syntax
-  Plug 'https://github.com/PProvost/vim-markdown-jekyll'
-
   " EditorConfig
   Plug 'editorconfig/editorconfig-vim'
 
@@ -107,10 +104,21 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
-"augroup SyntaxSettings
-"    autocmd!
-"    autocmd BufNewFile,BufRead *.tsx set filetype=typescript
-"augroup END
+
+augroup main
+  autocmd!
+
+  autocmd InsertEnter * :set norelativenumber
+  autocmd InsertLeave * :set relativenumber
+
+  autocmd BufWritePost :source $MYVIMRC<cr>
+
+  autocmd WinEnter * set cursorline
+  autocmd WinLeave * set nocursorline
+
+  " https://github.com/neoclide/coc-json/issues/11#issuecomment-535262331
+  autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+augroup END
 
 set viewoptions=cursor,folds,slash,unix
 " let g:skipview_files = ['*\.vim']
@@ -135,13 +143,6 @@ set autoindent
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-
-" override vim-markdown-jekyll setting sw and ts to 3
-autocmd FileType markdown setlocal shiftwidth=2 tabstop=2
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
-
-" 4 space tabs for java
-"autocmd FileType java setlocal tabstop=4 shiftwidth=4
 
 " show command in last line of screen
 set showcmd
@@ -183,9 +184,6 @@ highlight LineNr ctermfg=darkyellow
 " don't add multiple spaces after eol punctuation
 set nojoinspaces
 
-autocmd InsertEnter * :set nornu
-autocmd InsertLeave * :set rnu
-
 set foldmethod=manual
 
 function! FileSize()
@@ -218,9 +216,6 @@ set statusline+=\ col:%c " cursor column
 set statusline+=\ line:%l/%L " cursor line/ total lines
 set statusline+=\ %{FileSize()}
 set statusline+=\ %P " precent through file
-
-autocmd BufRead,BufNewFile *.js.jspf set filetype=javascript
-autocmd BufRead,BufNewFile *.js.jsp set filetype=javascript
 
 highlight Pmenu ctermbg=grey gui=bold
 highlight PmenuSel ctermbg=red gui=bold
@@ -284,21 +279,6 @@ nnoremap <Leader>ev :tabnew<CR>:e $MYVIMRC<CR>
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
-
-
-if has ('autocmd') " Remain compatible with earlier versions
- augroup vimrc     " Source vim configuration upon save
-    autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
-    autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
-  augroup END
-endif " has autocmd
-
-
-augroup BgHighlight
-    autocmd!
-    autocmd WinEnter * set cul
-    autocmd WinLeave * set nocul
-augroup END
 
 " fix slow syntax highlighting in ruby files
 set re=1
@@ -389,5 +369,3 @@ nnoremap <leader>a :YcmCompleter GoToDefinition<CR>
 " nnoremap <leader>d :YcmCompleter GetDoc<CR>
 "
 
-" https://github.com/neoclide/coc-json/issues/11#issuecomment-535262331
-autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
