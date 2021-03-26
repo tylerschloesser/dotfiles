@@ -9,6 +9,30 @@ endif
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+if exists("g:ctrl_user_command")
+  unlet g:ctrlp_user_command
+endif
+set wildignore+=*/eclipse-bin/*
+set wildignore+=*/bin/*
+" https://github.com/kien/ctrlp.vim/issues/490
+let g:ctrlp_clear_cache_on_exit = 0
+"let g:ctrlp_working_path_mode=''
+
+nnoremap <Leader>m :CtrlPMRU<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
+
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+"let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+set t_Co=256
+
 " load plugins
 call plug#begin('~/.vim/plugged')
 
@@ -19,43 +43,16 @@ call plug#begin('~/.vim/plugged')
   Plug 'prettier/vim-prettier'
   Plug 'jparise/vim-graphql'
 
-  " code-completion engine - requires installed component
-  " https://github.com/Valloric/YouCompleteMe#installation
   Plug 'Valloric/YouCompleteMe'
-  let g:ycm_seed_identifiers_with_syntax = 1
-  let g:ycm_collect_identifiers_from_tags_files = 1
 
   " toggle quickfix list and location-list
   Plug 'Valloric/ListToggle'
-
-  " syntax checking
-  " Plug 'scrooloose/syntastic'
-  " "set statusline+=%#warningmsg#
-  " "set statusline+=%{SyntasticStatuslineFlag()}
-  " "set statusline+=%*
-  " let g:syntastic_always_populate_loc_list = 1
-  " let g:syntastic_auto_loc_list = 1
-  " let g:syntastic_check_on_open = 1
-  " let g:syntastic_check_on_wq = 0
 
   " better medium-distance motion
   Plug 'justinmk/vim-sneak'
 
   " ctrlp
   Plug 'ctrlpvim/ctrlp.vim'
-  let g:ctrlp_map = '<c-p>'
-  let g:ctrlp_cmd = 'CtrlP'
-  if exists("g:ctrl_user_command")
-    unlet g:ctrlp_user_command
-  endif
-  set wildignore+=*/eclipse-bin/*
-  set wildignore+=*/bin/*
-  " https://github.com/kien/ctrlp.vim/issues/490
-  let g:ctrlp_clear_cache_on_exit = 0
-"let g:ctrlp_working_path_mode=''
-
-  nnoremap <Leader>m :CtrlPMRU<CR>
-  nnoremap <Leader>b :CtrlPBuffer<CR>
 
   " git wrapper
   Plug 'tpope/vim-fugitive'
@@ -68,11 +65,6 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline_powerline_fonts = 1
-  "let g:airline#extensions#tabline#buffer_idx_mode = 1
-  let g:airline#extensions#tabline#buffer_nr_show = 1
-  set t_Co=256
 
   " javascript/jsx syntax highlighting
   Plug 'pangloss/vim-javascript'
