@@ -111,7 +111,7 @@ augroup main
   autocmd InsertEnter * :set norelativenumber
   autocmd InsertLeave * :set relativenumber
 
-  autocmd BufWritePost :source $MYVIMRC<cr>
+  autocmd BufWritePost $MYVIMRC :source $MYVIMRC
 
   autocmd WinEnter * set cursorline
   autocmd WinLeave * set nocursorline
