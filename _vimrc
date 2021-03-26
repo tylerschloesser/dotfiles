@@ -294,7 +294,7 @@ let g:mta_filetypes = {
 
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|my-first-app\/ios'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|my-first-app\/ios\|bin'
 
 "https://github.com/kien/ctrlp.vim/issues/234
 let g:ctrlp_max_files=0
