@@ -94,6 +94,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
 
+  Plug 'vim-scripts/confirm-quit'
+
 call plug#end()
 
 
@@ -358,4 +360,3 @@ set pastetoggle=<Leader>p
 nnoremap <leader>a :YcmCompleter GoToDefinition<CR>
 " nnoremap <leader>d :YcmCompleter GetDoc<CR>
 "
-
