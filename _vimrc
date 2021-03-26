@@ -27,11 +27,15 @@ nnoremap <Leader>m :CtrlPMRU<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 
 
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-"let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+
+" only show filename of buffer
+let g:airline#extensions#tabline#fnamemod = ':t'
+
 set t_Co=256
+
 
 " load plugins
 call plug#begin('~/.vim/plugged')
