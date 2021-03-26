@@ -5,9 +5,18 @@ if empty(glob("~/.vim/autoload/plug.vim"))
   execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
+" https://github.com/prettier/vim-prettier
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+
 " load plugins
 call plug#begin('~/.vim/plugged')
 
+  Plug 'neoclide/jsonc.vim'
+
+  Plug 'plasticboy/vim-markdown'
+
+  Plug 'prettier/vim-prettier'
   Plug 'jparise/vim-graphql'
 
   " code-completion engine - requires installed component
@@ -240,26 +249,7 @@ vnoremap <silent> # :<C-U>
 " eclim
 filetype plugin indent on
 
-" http://eclim.org/vim/java/index.html
-" ftplugin is not working ...... :/
-"
-" Import the class under the cursor with <leader>i (:h mapleader):
-"nnoremap <silent> <buffer> <leader>ic :JavaImport<cr>
-"" Search for the javadocs of the element under the cursor with <leader>d.
-"nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
-"" Perform a context sensitive search of the element under the cursor with <enter>.
-"nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
-"
-"nnoremap <silent> <buffer> <leader>ia :JavaImportOrganize<cr>
-
-
-let g:EclimCompletionMethod = 'omnifunc'
-
 let g:C_Ctrl_j = 'off'
-"nnoremap <C-j>I :JavaImportOrganize<CR>
-"nnoremap <C-j>i :JavaImport<CR>
-"nnoremap <C-j>c :JavaCorrect<CR>
-"nnoremap <C-j>d :JavaDocPreview<CR>
 
 set modeline
 
@@ -290,23 +280,6 @@ function! GetVisualSelection()
   return join(lines, "\n")
 endfunction
 
-"function! Get
-
-nnoremap <leader>jo :JavaImportOrganize<CR>
-nnoremap <leader>ji :JavaImport<CR>
-nnoremap <leader>jc :JavaCorrect<CR>
-nnoremap <leader>jd :JavaDocPreview<CR>
-nnoremap <leader>jnc :JavaNew class
-nnoremap <leader>jr :JavaRename
-nnoremap <leader>jm :JavaMove
-" http://eclim.org/vim/java/search.html#element-search
-nnoremap <leader>jsc :JavaSearchContext -a vsplit<cr>
-nnoremap <leader>juc :JUnit %<cr>
-
-vnoremap <leader>jr :<c-u>JavaRename <c-r>=GetVisualSelection()<cr>
-
-vnoremap <leader>jsc :JavaSearchContext<CR>
-
 nnoremap <Leader>ev :tabnew<CR>:e $MYVIMRC<CR>
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
@@ -326,8 +299,6 @@ augroup BgHighlight
     autocmd WinEnter * set cul
     autocmd WinLeave * set nocul
 augroup END
-
-"let g:EclimLoggingDisabled = 1
 
 " fix slow syntax highlighting in ruby files
 set re=1
@@ -416,3 +387,7 @@ set pastetoggle=<Leader>p
 
 nnoremap <leader>a :YcmCompleter GoToDefinition<CR>
 " nnoremap <leader>d :YcmCompleter GetDoc<CR>
+"
+
+" https://github.com/neoclide/coc-json/issues/11#issuecomment-535262331
+autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
