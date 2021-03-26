@@ -269,7 +269,7 @@ function! GetVisualSelection()
   return join(lines, "\n")
 endfunction
 
-nnoremap <Leader>ev :tabnew<CR>:e $MYVIMRC<CR>
+nnoremap <Leader>ev :vs $MYVIMRC<CR>
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
@@ -302,3 +302,4 @@ let g:netrw_liststyle = 3
 let g:netrw_winsize = 25
 
 nnoremap <leader>a :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>o :YcmCompleter OrganizeImports<CR>
