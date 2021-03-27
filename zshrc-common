@@ -6,3 +6,6 @@ bindkey "^R" history-incremental-search-backward
 source ~/.profile
 
 export PATH=/Users/tschloes/Library/Python/3.9/bin/:$PATH
+
+export EDITOR=vim
+export VISUAL=vim
