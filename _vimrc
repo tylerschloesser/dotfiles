@@ -309,6 +309,12 @@ let g:netrw_winsize = 25
 " let g:ycm_collect_identifiers_from_tags_files = 1
 " nnoremap <leader>a :YcmCompleter GoToDefinition<CR>
 " nnoremap <leader>o :YcmCompleter OrganizeImports<CR>
+"
+
+
+
+" https://github.com/neoclide/coc.nvim/issues/1775#issuecomment-757764053
+let g:coc_disable_transparent_cursor = 1
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
