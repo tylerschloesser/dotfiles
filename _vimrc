@@ -272,7 +272,8 @@ function! GetVisualSelection()
   return join(lines, "\n")
 endfunction
 
-nnoremap <Leader>ev :vs $MYVIMRC<CR>
+" TODO remove this? conflicts with coc
+" nnoremap <Leader>ev :vs $MYVIMRC<CR>
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
