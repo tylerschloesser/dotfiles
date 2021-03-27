@@ -55,6 +55,8 @@ source "${ZDOTDIR:-$HOME}/.zshrc-common"
 
 ln -s `readlink -f .tmux.conf` ~/.tmux.conf
 
+if tmux flickers, remove uptime from powerline config
+
 # node
 
 0. use [nvm](https://github.com/nvm-sh/nvm)
