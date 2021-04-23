@@ -83,7 +83,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'altercation/vim-colors-solarized'
 
   " nerdtree
-  Plug 'https://github.com/scrooloose/nerdtree.git'
+  " Plug 'https://github.com/scrooloose/nerdtree.git'
 
   " EditorConfig
   Plug 'editorconfig/editorconfig-vim'
@@ -98,6 +98,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'peitalin/vim-jsx-typescript'
 
   Plug 'vim-scripts/confirm-quit'
+
+  Plug 'elixir-editors/vim-elixir'
 
 call plug#end()
 
