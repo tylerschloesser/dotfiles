@@ -5,10 +5,6 @@ if empty(glob("~/.vim/autoload/plug.vim"))
   execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
-" https://github.com/prettier/vim-prettier
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
-
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -103,6 +99,11 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
+" https://github.com/prettier/vim-prettier
+"let g:prettier#autoformat = 1
+let g:prettier#autoformat_config_present = 1
+let g:prettier#autoformat_require_pragma = 0
+let g:prettier#autoformat_config_files = ['prettier.config.js']
 
 augroup main
   autocmd!
