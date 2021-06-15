@@ -17,8 +17,6 @@ set wildignore+=*/bin/*
 let g:ctrlp_clear_cache_on_exit = 0
 "let g:ctrlp_working_path_mode=''
 
-nnoremap <Leader>m :CtrlPMRU<CR>
-nnoremap <Leader>b :CtrlPBuffer<CR>
 
 
 let g:airline_powerline_fonts = 1
@@ -103,7 +101,18 @@ call plug#end()
 "let g:prettier#autoformat = 1
 let g:prettier#autoformat_config_present = 1
 let g:prettier#autoformat_require_pragma = 0
-let g:prettier#autoformat_config_files = ['prettier.config.js']
+
+" https://github.com/prettier/vim-prettier/blob/master/plugin/prettier.vim#L30
+" need to override because default config doesn't contain prettier.config.js
+let g:prettier#autoformat_config_files = [
+  \'.prettierrc',
+  \'.prettierrc.yml',
+  \'.prettierrc.yaml',
+  \'.prettierrc.js',
+  \'.prettierrc.config.js',
+  \'.prettierrc.json',
+  \'.prettierrc.toml',
+  \'prettier.config.js']
 
 augroup main
   autocmd!
@@ -485,3 +494,7 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
+nnoremap <Leader>m :CtrlPMRU<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
