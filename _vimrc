@@ -11,8 +11,8 @@ let g:ctrlp_cmd = 'CtrlP'
 if exists("g:ctrl_user_command")
   unlet g:ctrlp_user_command
 endif
-set wildignore+=*/eclipse-bin/*
-set wildignore+=*/bin/*
+"set wildignore+=*/eclipse-bin/*
+"set wildignore+=*/bin/*
 " https://github.com/kien/ctrlp.vim/issues/490
 let g:ctrlp_clear_cache_on_exit = 0
 "let g:ctrlp_working_path_mode=''
@@ -306,7 +306,9 @@ let g:mta_filetypes = {
 
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|my-first-app\/ios\|bin'
+" ignore .gitignore
+" https://github.com/kien/ctrlp.vim/issues/174#issuecomment-215829892
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
 "https://github.com/kien/ctrlp.vim/issues/234
 let g:ctrlp_max_files=0
