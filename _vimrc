@@ -95,6 +95,7 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'elixir-editors/vim-elixir'
 
+  Plug 'kshenoy/vim-signature'
 call plug#end()
 
 " https://github.com/prettier/vim-prettier
