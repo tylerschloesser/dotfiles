@@ -94,6 +94,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'kshenoy/vim-signature'
 call plug#end()
 
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+
+" https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim#highlighting-for-large-files
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
+
 " https://github.com/prettier/vim-prettier
 "let g:prettier#autoformat = 1
 let g:prettier#autoformat_config_present = 1
