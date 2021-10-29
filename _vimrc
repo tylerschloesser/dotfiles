@@ -96,6 +96,8 @@ call plug#end()
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
+let g:vim_markdown_folding_disabled = 1
+
 " https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim#highlighting-for-large-files
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
