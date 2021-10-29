@@ -63,18 +63,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
 
-  " javascript/jsx syntax highlighting
-  Plug 'pangloss/vim-javascript'
-  Plug 'MaxMEllon/vim-jsx-pretty'
 
   " highlight matching html/xml tags
   Plug 'Valloric/MatchTagAlways'
 
   " auto close html tag
   Plug 'alvan/vim-closetag'
-
-  "Plug 'chriskempson/base16-vim'
-  Plug 'altercation/vim-colors-solarized'
 
   " nerdtree
   " Plug 'https://github.com/scrooloose/nerdtree.git'
@@ -88,8 +82,10 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'https://github.com/vim-scripts/restore_view.vim'
 
+  Plug 'pangloss/vim-javascript'
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
+  Plug 'styled-components/vim-styled-components', { 'branch': 'main'  }
 
   Plug 'vim-scripts/confirm-quit'
 
