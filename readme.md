@@ -16,7 +16,7 @@ Add to github: https://github.com/settings/keys
 1. install iterm: https://iterm2.com/
 
 ```
-brew install git tmux vim zsh
+brew install git tmux vim zsh coreutils
 ```
 
 # powerline
