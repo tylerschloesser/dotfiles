@@ -64,7 +64,8 @@ call plug#begin('~/.vim/plugged')
 
 
   " highlight matching html/xml tags
-  Plug 'Valloric/MatchTagAlways'
+  " TODO should I install python for this?
+  " Plug 'Valloric/MatchTagAlways'
 
   " auto close html tag
   Plug 'alvan/vim-closetag'
