@@ -79,7 +79,16 @@ source "${ZDOTDIR:-$HOME}/.zshrc-common"
 
 # tmux
 
+```
 ln -s `readlink -f .tmux.conf` ~/.tmux.conf
+```
+
+or on mac
+
+```
+ln -s `greadlink -f .tmux.conf` ~/.tmux.conf
+```
+
 
 if tmux flickers, remove uptime from powerline config
 
