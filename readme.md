@@ -71,6 +71,8 @@ ln -s `greadlink -f zshrc-common` ~/.zshrc-common
 
 0. Add this to .zshrc
 
+DON'T ADD TO .zprofile. It doesn't work for some reason.
+
 ```sh
 source "${ZDOTDIR:-$HOME}/.zshrc-common"
 ```

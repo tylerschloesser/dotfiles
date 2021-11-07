@@ -3,7 +3,5 @@ bindkey "^p" up-line-or-search
 bindkey "^N" down-line-or-search
 bindkey "^R" history-incremental-search-backward
 
-source ~/.profile
-
 export EDITOR=vim
 export VISUAL=vim
