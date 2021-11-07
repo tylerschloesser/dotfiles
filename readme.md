@@ -1,4 +1,19 @@
-last tested on ubuntu 18
+# SSH Key
+
+```
+ssh-keygen -t rsa -b 4096 -C "tylerschloesser@gmail.com"
+```
+
+```
+cat ~/.ssh/id_rsa.pub|pbcopy
+```
+
+Add to github: https://github.com/settings/keys
+
+# Mac Stuff
+
+0. install brew: https://brew.sh/
+1. install iterm: https://iterm2.com/
 
 # powerline
 
@@ -7,7 +22,6 @@ last tested on ubuntu 18
 
 # vim
 
-0. setup ssh key
 1. clone repo
     ```
     git clone git@github.com:tylerschloesser/dotfiles.git && cd dotfiles
