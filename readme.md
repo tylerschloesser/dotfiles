@@ -63,6 +63,12 @@ git submodule update --recursive --remote
 ln -s `readlink -f zshrc-common` ~/.zshrc-common
 ```
 
+or on mac
+
+```
+ln -s `greadlink -f zshrc-common` ~/.zshrc-common
+```
+
 0. Add this to .zshrc
 
 ```sh
