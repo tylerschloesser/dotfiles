@@ -94,6 +94,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'kshenoy/vim-signature'
 call plug#end()
 
+let g:coc_global_extensions = [ 'coc-tsserver' ]
+
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 let g:vim_markdown_folding_disabled = 1
