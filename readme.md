@@ -15,6 +15,10 @@ Add to github: https://github.com/settings/keys
 0. install brew: https://brew.sh/
 1. install iterm: https://iterm2.com/
 
+```
+brew install git tmux vim zsh
+```
+
 # powerline
 
 0. install [powerline](https://powerline.readthedocs.io/en/latest/) ([github](https://github.com/powerline/powerline))
