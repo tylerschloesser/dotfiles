@@ -36,7 +36,7 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'plasticboy/vim-markdown'
 
-  Plug 'prettier/vim-prettier'
+  " Plug 'prettier/vim-prettier'
   Plug 'jparise/vim-graphql'
 
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -92,9 +92,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'elixir-editors/vim-elixir'
 
   Plug 'kshenoy/vim-signature'
+  Plug 'pantharshit00/vim-prisma'
 call plug#end()
 
-let g:coc_global_extensions = [ 'coc-tsserver' ]
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-json' ]
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
@@ -107,20 +108,20 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 " https://github.com/prettier/vim-prettier
 "let g:prettier#autoformat = 1
-let g:prettier#autoformat_config_present = 1
-let g:prettier#autoformat_require_pragma = 0
+" let g:prettier#autoformat_config_present = 1
+" let g:prettier#autoformat_require_pragma = 0
 
 " https://github.com/prettier/vim-prettier/blob/master/plugin/prettier.vim#L30
 " need to override because default config doesn't contain prettier.config.js
-let g:prettier#autoformat_config_files = [
-  \'.prettierrc',
-  \'.prettierrc.yml',
-  \'.prettierrc.yaml',
-  \'.prettierrc.js',
-  \'.prettierrc.config.js',
-  \'.prettierrc.json',
-  \'.prettierrc.toml',
-  \'prettier.config.js']
+" let g:prettier#autoformat_config_files = [
+"   \'.prettierrc',
+"   \'.prettierrc.yml',
+"   \'.prettierrc.yaml',
+"   \'.prettierrc.js',
+"   \'.prettierrc.config.js',
+"   \'.prettierrc.json',
+"   \'.prettierrc.toml',
+"   \'prettier.config.js']
 
 augroup main
   autocmd!
