@@ -278,10 +278,10 @@ let mapleader=" "
 map <Esc><Esc> ;w<CR>
 
 " git (fugative.vim)
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gs :Git status<CR>
+nnoremap <leader>gb :Git blame<CR>
+nnoremap <leader>gc :Git commit<CR>
+nnoremap <leader>gd :Git diff<CR>
 
 function! GetVisualSelection()
   " Why is this not a built-in Vim script function?!
