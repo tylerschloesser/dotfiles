@@ -95,7 +95,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'pantharshit00/vim-prisma'
 call plug#end()
 
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-json' ]
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-json', 'coc-java' ]
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
