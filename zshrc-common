@@ -8,3 +8,6 @@ export VISUAL=vim
 
 # for powerline
 export PATH="~/Library/Python/3.9/bin/:$PATH"
+
+# https://www.reddit.com/r/zsh/comments/j71qai/controld_control/
+setopt ignore_eof
