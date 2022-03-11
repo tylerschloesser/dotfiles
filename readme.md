@@ -43,15 +43,6 @@ brew install git tmux vim zsh coreutils
     ```
     vim +PlugInstall +qall
     ```
-5. install [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#installation)
-
-6. update YouCompleteMe
-
-```
-git submodule update --recursive --remote
-```
-
-
 
 # zsh
 
