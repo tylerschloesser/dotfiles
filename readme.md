@@ -44,6 +44,8 @@ brew install git tmux vim zsh coreutils
     vim +PlugInstall +qall
     ```
 
+coc-java requires JDK 11
+
 # zsh
 
 0. Install prezto https://github.com/sorin-ionescu/prezto
