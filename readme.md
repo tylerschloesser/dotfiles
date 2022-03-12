@@ -46,6 +46,16 @@ brew install git tmux vim zsh coreutils
 
 coc-java requires JDK 11
 
+example of coc-settings.json
+
+```
+{
+  "java.jdt.ls.vmargs": "-javaagent:/Users/tschloes/java-stuff/lombok-1-18-18.jar",
+  "java.format.settings.url": "file:///Users/tschloes/java-stuff/fixed-google-format.xml",
+  "java.completion.importOrder": []
+}
+```
+
 # zsh
 
 0. Install prezto https://github.com/sorin-ionescu/prezto
