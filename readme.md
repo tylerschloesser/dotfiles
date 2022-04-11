@@ -24,6 +24,12 @@ brew install git tmux vim zsh coreutils
 0. install [powerline](https://powerline.readthedocs.io/en/latest/) ([github](https://github.com/powerline/powerline))
 0. install [powerline fonts](https://github.com/powerline/fonts)
 
+Find install directory and update tmux.conf
+
+```
+pip3 show powerline-status
+```
+
 # vim
 
 1. clone repo
