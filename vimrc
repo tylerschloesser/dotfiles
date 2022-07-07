@@ -93,6 +93,8 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'kshenoy/vim-signature'
   Plug 'pantharshit00/vim-prisma'
+
+  Plug 'tpope/vim-vinegar'
 call plug#end()
 
 let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-json', 'coc-java' ]
@@ -280,7 +282,8 @@ map <Esc><Esc> ;w<CR>
 " git (fugative.vim)
 nnoremap <leader>gs :Git status<CR>
 nnoremap <leader>gb :Git blame<CR>
-nnoremap <leader>gc :Git commit<CR>
+nnoremap <leader>gc :Git commit -a<CR>
+nnoremap <leader>ga :Git add<CR>
 nnoremap <leader>gd :Git diff<CR>
 
 function! GetVisualSelection()
