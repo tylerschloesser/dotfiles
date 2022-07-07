@@ -11,5 +11,3 @@ export PATH="~/Library/Python/3.9/bin/:$PATH"
 
 # https://www.reddit.com/r/zsh/comments/j71qai/controld_control/
 setopt ignore_eof
-
-alias c="PACKAGE=`pwd | grep -E -o "[^/]+$"`; URL=https://code.amazon.com/packages/$PACKAGE; echo $URL; open $URL"
