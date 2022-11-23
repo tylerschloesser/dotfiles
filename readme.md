@@ -113,3 +113,7 @@ nvm install --lts
 # chrome
 
 0. install [react developer tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+
+## V2
+
+* https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
