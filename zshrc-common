@@ -11,3 +11,6 @@ export PATH="~/Library/Python/3.9/bin/:$PATH"
 
 # https://www.reddit.com/r/zsh/comments/j71qai/controld_control/
 setopt ignore_eof
+
+export PATH="~/.local/bin:$PATH"
+export PATH="~/.fig/bin:$PATH"
