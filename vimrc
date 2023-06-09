@@ -95,6 +95,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'pantharshit00/vim-prisma'
   Plug 'tpope/vim-vinegar'
   Plug 'tikhomirov/vim-glsl'
+
+	Plug 'othree/html5.vim'
+	Plug 'pangloss/vim-javascript'
+	Plug 'evanleck/vim-svelte', {'branch': 'main'}
+
+  Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-json', 'coc-java' ]
@@ -325,6 +331,8 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-stand
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 
+let g:ctrlp_root_markers = ['package.json']
+
 "https://shapeshed.com/vim-netrw/
 "
 let g:netrw_liststyle = 3
@@ -367,7 +375,7 @@ endif
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      \ pumvisible() ? coc#_select_confirm() :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
@@ -502,3 +510,8 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 nnoremap <Leader>m :CtrlPMRU<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
+
+let g:svelte_preprocessor_tags = [
+  \ { 'name': 'ts', 'tag': 'script', 'as': 'typescript' }
+  \ ]
+let g:svelte_preprocessors = ['ts']
