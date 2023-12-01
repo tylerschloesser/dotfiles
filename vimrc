@@ -251,9 +251,6 @@ set modeline
 "
 let mapleader=" "
 
-" double excape saves
-map <Esc><Esc> ;w<CR>
-
 " git (fugative.vim)
 nnoremap <leader>gs :Git status<CR>
 nnoremap <leader>gb :Git blame<CR>
