@@ -6,11 +6,13 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 
 
-let g:ctrlp_map = '<c-p>'
+let g:ctrlp_map = '<Leader>p'
 let g:ctrlp_cmd = 'CtrlP'
 if exists("g:ctrl_user_command")
   unlet g:ctrlp_user_command
 endif
+nnoremap <Leader>m :CtrlPMRU<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
 
 set t_Co=256
 
@@ -80,20 +82,6 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'easymotion/vim-easymotion'
 call plug#end()
-
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-" https://github.com/bibstha/dotfiles-thoughtbot/blob/a31f24e8ef459c54fe94b3b99d017dd552ce9d09/vimrc#L73
-"
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
 
 let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-json', 'coc-java' ]
 
@@ -450,8 +438,6 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
-nnoremap <Leader>m :CtrlPMRU<CR>
-nnoremap <Leader>b :CtrlPBuffer<CR>
 
 let g:svelte_preprocessor_tags = [
   \ { 'name': 'ts', 'tag': 'script', 'as': 'typescript' }

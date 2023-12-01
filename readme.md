@@ -26,7 +26,6 @@ ssh-add --apple-use-keychain ~/.ssh/id_rsa
 0. install iterm: https://iterm2.com/
  * Install profile json
 0. Map caps lock to control
-0. Install [silver searcher](https://github.com/ggreer/the_silver_searcher)
 
 ```
 brew install git tmux vim zsh coreutils
