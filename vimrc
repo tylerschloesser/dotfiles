@@ -174,22 +174,6 @@ set nojoinspaces
 
 set foldmethod=manual
 
-function! FileSize()
-    let bytes = getfsize(expand("%:p"))
-    if bytes <= 0
-        return ""
-    endif
-    if bytes < 1024
-        return bytes . "B"
-    endif
-    let bytes = bytes / 1024
-    if bytes < 1024
-        return bytes . "KiB"
-    endi
-    let bytes = bytes / 1024
-    return bytes . "MiB"
-endfunction
-
 set laststatus=2
 
 highlight Pmenu ctermbg=grey gui=bold
@@ -450,3 +434,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " only show filename of buffer
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+nnoremap <silent> <C-p> :bp<CR>
+nnoremap <silent> <C-n> :bn<CR>
