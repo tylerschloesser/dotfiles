@@ -13,6 +13,12 @@ cat ~/.ssh/id_rsa.pub|pbcopy
 
 Add to github: https://github.com/settings/keys
 
+Add to mac keychain:
+
+```
+ssh-add --apple-use-keychain ~/.ssh/id_rsa
+```
+
 ## Mac Stuff
 
 0. install brew: https://brew.sh/
