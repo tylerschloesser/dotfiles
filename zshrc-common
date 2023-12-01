@@ -31,3 +31,5 @@ export TMUXINATOR_CONFIG="$DOTFILES/tmuxinator.config"
 # https://stackoverflow.com/a/49862151
 #
 export LESS="$LESS --quit-if-one-screen"
+
+export GIT_CONFIG_GLOBAL="$DOTFILES/gitconfig"
