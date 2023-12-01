@@ -48,16 +48,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
 
-
-  " highlight matching html/xml tags
-  " TODO should I install python for this?
-  " Plug 'Valloric/MatchTagAlways'
-
   " auto close html tag
   Plug 'alvan/vim-closetag'
-
-  " nerdtree
-  " Plug 'https://github.com/scrooloose/nerdtree.git'
 
   " EditorConfig
   Plug 'editorconfig/editorconfig-vim'
@@ -266,12 +258,6 @@ function! GetVisualSelection()
   let lines[0] = lines[0][col1 - 1:]
   return join(lines, "\n")
 endfunction
-
-" TODO remove this? conflicts with coc
-" nnoremap <Leader>ev :vs $MYVIMRC<CR>
-
-nnoremap <Leader>n :NERDTreeToggle<CR>
-let g:NERDTreeWinPos = "right"
 
 " fix slow syntax highlighting in ruby files
 set re=1
