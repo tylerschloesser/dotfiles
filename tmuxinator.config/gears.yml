@@ -1,7 +1,7 @@
 # /Users/tyler/tmuxinator.config/gears.yml
 
 name: gears
-root: ~/ler.dev/packages/demo-gear
+root: <%= ENV["REPOS"] %>/ler.dev/packages/demo-gear
 
 # Optional tmux socket
 # socket_name: foo

@@ -33,3 +33,5 @@ export TMUXINATOR_CONFIG="$DOTFILES/tmuxinator.config"
 export LESS="$LESS --quit-if-one-screen"
 
 export GIT_CONFIG_GLOBAL="$DOTFILES/gitconfig"
+
+export REPOS="~/repos"
