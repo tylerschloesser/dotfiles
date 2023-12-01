@@ -22,7 +22,7 @@ brew install git tmux vim zsh coreutils
 # powerline
 
 0. install [powerline](https://powerline.readthedocs.io/en/latest/) ([github](https://github.com/powerline/powerline))
-0. install [powerline fonts](https://github.com/powerline/fonts)
+0. install [hack nerd font mono](https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts)
 
 Find install directory and update tmux.conf
 
@@ -115,5 +115,3 @@ nvm install --lts
 0. install [react developer tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 
 ## V2
-
-* https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
