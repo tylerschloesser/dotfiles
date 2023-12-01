@@ -212,19 +212,6 @@ endfunction
 
 set laststatus=2
 
-set statusline=%f " Path to the file in the buffer, as typed or relative to current directory.
-set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}, " file encoding
-set statusline+=%{&ff}] " file format
-set statusline+=\ %h%m%r " help file, modified, and read only flags
-set statusline+=%y " filetype
-set statusline+=%{fugitive#statusline()}\  " git branch
-set statusline+=%= " left/right separator
-set statusline+=0x%B
-set statusline+=\ col:%c " cursor column
-set statusline+=\ line:%l/%L " cursor line/ total lines
-set statusline+=\ %{FileSize()}
-set statusline+=\ %P " precent through file
-
 highlight Pmenu ctermbg=grey gui=bold
 highlight PmenuSel ctermbg=red gui=bold
 
