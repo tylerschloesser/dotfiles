@@ -18,6 +18,7 @@ Add to github: https://github.com/settings/keys
 0. install brew: https://brew.sh/
  * TODO need to reorder stuff. Need to add to path AFTER zsh
 1. install iterm: https://iterm2.com/
+ * Install profile json
 
 ```
 brew install git tmux vim zsh coreutils
