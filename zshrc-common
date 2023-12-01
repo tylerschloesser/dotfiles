@@ -26,3 +26,8 @@ fi
 export DOTFILES=${0:A:h}
 
 export TMUXINATOR_CONFIG="$DOTFILES/tmuxinator.config"
+
+# Fixes git-branch stealing keyboard via less
+# https://stackoverflow.com/a/49862151
+#
+export LESS="$LESS --quit-if-one-screen"
