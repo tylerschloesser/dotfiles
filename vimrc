@@ -11,20 +11,6 @@ let g:ctrlp_cmd = 'CtrlP'
 if exists("g:ctrl_user_command")
   unlet g:ctrlp_user_command
 endif
-"set wildignore+=*/eclipse-bin/*
-"set wildignore+=*/bin/*
-" https://github.com/kien/ctrlp.vim/issues/490
-let g:ctrlp_clear_cache_on_exit = 0
-"let g:ctrlp_working_path_mode=''
-
-
-
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-
-" only show filename of buffer
-let g:airline#extensions#tabline#fnamemod = ':t'
 
 set t_Co=256
 
