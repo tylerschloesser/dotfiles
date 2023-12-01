@@ -113,6 +113,12 @@ nvm install --lts
 
 0. install [react developer tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 
+## tmuxinator
+
+```
+brew install tmuxinator
+```
+
 # Mac Software
 
 * [Flux](https://justgetflux.com/)
