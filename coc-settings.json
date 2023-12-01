@@ -1,0 +1,25 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "typescript",
+    "typescriptreact",
+    "html",
+    "json",
+    "jsonc",
+    "svelte",
+    "css",
+    "scss",
+    "glsl",
+    "frag.glsl",
+    "vert.glsl",
+    "python"
+  ],
+  "typescript.suggest.autoImports": true,
+  "svelte.enable-ts-plugin": true,
+  "tsserver.useLocalTsdk": true,
+  "languageserver": {
+    "glsl": {
+      "command": "/Users/tyler/glsl-language-server/build/glslls",
+      "filetypes": ["glsl"]
+    }
+  }
+}
