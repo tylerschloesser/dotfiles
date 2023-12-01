@@ -132,3 +132,9 @@ nvm install --lts
 * [RunCat](https://apps.apple.com/us/app/runcat/id1429033973?mt=12)
 * [Magnet](https://apps.apple.com/us/app/magnet/id441258766?mt=12)
 * [AltTab](https://alt-tab-macos.netlify.app/)
+
+CloudDocs
+
+```
+cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/
+```
