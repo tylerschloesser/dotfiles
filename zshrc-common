@@ -19,3 +19,10 @@ if [ ! -f $POWERLINE_CONFIG ]; then
   message="POWERLINE_CONFIG invalid: $POWERLINE_CONFIG"
   print -P "%F{red}$message%f"
 fi
+
+# Get the absolute path to the directory in which this file resides
+# https://unix.stackexchange.com/a/115431
+#
+export DOTFILES=${0:a:h}
+
+export TMUXINATOR_CONFIG="$DOTFILES/tmuxinator.config"
