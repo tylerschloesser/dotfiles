@@ -22,7 +22,7 @@ ssh-add --apple-use-keychain ~/.ssh/id_rsa
 ## Mac Stuff
 
 0. install brew: https://brew.sh/
- * TODO need to reorder stuff. Need to add to path AFTER zsh
+ * Update path temporarily or use full brew path. Prezto will update the path automatically later.
 0. install iterm: https://iterm2.com/
  * Install profile json
 0. Map caps lock to control
