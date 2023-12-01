@@ -12,5 +12,10 @@ export PATH="~/Library/Python/3.9/bin/:$PATH"
 # https://www.reddit.com/r/zsh/comments/j71qai/controld_control/
 setopt ignore_eof
 
-export PATH="~/.local/bin:$PATH"
-export PATH="~/.fig/bin:$PATH"
+export PIP3_DIR=`pip3 show powerline-status | grep -oE "[^\ ]+/site-packages"`
+export POWERLINE_CONFIG="$PIP3_DIR/powerline/bindings/tmux/powerline.conf"
+
+if [ ! -f $POWERLINE_CONFIG ]; then
+  message="POWERLINE_CONFIG invalid: $POWERLINE_CONFIG"
+  print -P "%F{red}$message%f"
+fi
