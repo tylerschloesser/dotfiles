@@ -443,3 +443,10 @@ let g:svelte_preprocessor_tags = [
   \ { 'name': 'ts', 'tag': 'script', 'as': 'typescript' }
   \ ]
 let g:svelte_preprocessors = ['ts']
+
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
+" only show filename of buffer
+let g:airline#extensions#tabline#fnamemod = ':t'
