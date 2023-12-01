@@ -1,4 +1,7 @@
-# SSH Key
+
+# Dev Setup
+
+## SSH Key
 
 ```
 ssh-keygen -t rsa -b 4096 -C "tylerschloesser@gmail.com"
@@ -10,7 +13,7 @@ cat ~/.ssh/id_rsa.pub|pbcopy
 
 Add to github: https://github.com/settings/keys
 
-# Mac Stuff
+## Mac Stuff
 
 0. install brew: https://brew.sh/
  * TODO need to reorder stuff. Need to add to path AFTER zsh
@@ -20,7 +23,7 @@ Add to github: https://github.com/settings/keys
 brew install git tmux vim zsh coreutils
 ```
 
-# powerline
+## powerline
 
 0. install [powerline](https://powerline.readthedocs.io/en/latest/) ([github](https://github.com/powerline/powerline))
 0. install [hack nerd font mono](https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts)
@@ -31,7 +34,7 @@ Find install directory and update tmux.conf
 pip3 show powerline-status
 ```
 
-# vim
+## vim
 
 1. clone repo
     ```
@@ -63,7 +66,7 @@ example of coc-settings.json
 }
 ```
 
-# zsh
+## zsh
 
 0. Install prezto https://github.com/sorin-ionescu/prezto
 
@@ -87,7 +90,7 @@ DON'T ADD TO .zprofile. It doesn't work for some reason.
 source "${ZDOTDIR:-$HOME}/.zshrc-common"
 ```
 
-# tmux
+## tmux
 
 ```
 ln -s `readlink -f .tmux.conf` ~/.tmux.conf
@@ -102,7 +105,7 @@ ln -s `greadlink -f .tmux.conf` ~/.tmux.conf
 
 if tmux flickers, remove uptime from powerline config
 
-# node
+## node
 
 0. use [nvm](https://github.com/nvm-sh/nvm)
 0. otherwise check [nodesource](https://github.com/nodesource/distributions/blob/master/README.md)
@@ -111,8 +114,13 @@ if tmux flickers, remove uptime from powerline config
 nvm install --lts
 ```
 
-# chrome
+## chrome
 
 0. install [react developer tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 
-## V2
+# Mac Software
+
+* [Flux](https://justgetflux.com/)
+* [RunCat](https://apps.apple.com/us/app/runcat/id1429033973?mt=12)
+* [Magnet](https://apps.apple.com/us/app/magnet/id441258766?mt=12)
+* [AltTab](https://alt-tab-macos.netlify.app/)
