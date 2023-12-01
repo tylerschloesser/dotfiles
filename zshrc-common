@@ -23,6 +23,6 @@ fi
 # Get the absolute path to the directory in which this file resides
 # https://unix.stackexchange.com/a/115431
 #
-export DOTFILES=${0:a:h}
+export DOTFILES=${0:A:h}
 
 export TMUXINATOR_CONFIG="$DOTFILES/tmuxinator.config"
