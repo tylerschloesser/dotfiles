@@ -129,5 +129,5 @@ brew install tmuxinator
 CloudDocs
 
 ```
-cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/
+ln -s "`readlink -f ~/Library/Mobile\ Documents/com~apple~CloudDocs`" ~/cloud
 ```
