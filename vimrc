@@ -6,14 +6,6 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 
 
-let g:ctrlp_map = '<Leader>p'
-let g:ctrlp_cmd = 'CtrlP'
-if exists("g:ctrl_user_command")
-  unlet g:ctrlp_user_command
-endif
-nnoremap <Leader>m :CtrlPMRU<CR>
-nnoremap <Leader>b :CtrlPBuffer<CR>
-
 set t_Co=256
 
 
@@ -437,3 +429,12 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 nnoremap <silent> <C-p> :bp<CR>
 nnoremap <silent> <C-n> :bn<CR>
+
+let g:ctrlp_map = '<Leader>p'
+let g:ctrlp_cmd = 'CtrlP'
+if exists("g:ctrl_user_command")
+  unlet g:ctrlp_user_command
+endif
+nnoremap <Leader>m :CtrlPMRU<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
+
