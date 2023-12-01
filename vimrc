@@ -89,6 +89,20 @@ call plug#begin('~/.vim/plugged')
   Plug 'easymotion/vim-easymotion'
 call plug#end()
 
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+" https://github.com/bibstha/dotfiles-thoughtbot/blob/a31f24e8ef459c54fe94b3b99d017dd552ce9d09/vimrc#L73
+"
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
 let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-json', 'coc-java' ]
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
@@ -98,24 +112,6 @@ let g:vim_markdown_folding_disabled = 1
 " https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim#highlighting-for-large-files
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
-
-
-" https://github.com/prettier/vim-prettier
-"let g:prettier#autoformat = 1
-" let g:prettier#autoformat_config_present = 1
-" let g:prettier#autoformat_require_pragma = 0
-
-" https://github.com/prettier/vim-prettier/blob/master/plugin/prettier.vim#L30
-" need to override because default config doesn't contain prettier.config.js
-" let g:prettier#autoformat_config_files = [
-"   \'.prettierrc',
-"   \'.prettierrc.yml',
-"   \'.prettierrc.yaml',
-"   \'.prettierrc.js',
-"   \'.prettierrc.config.js',
-"   \'.prettierrc.json',
-"   \'.prettierrc.toml',
-"   \'prettier.config.js']
 
 augroup main
   autocmd!
