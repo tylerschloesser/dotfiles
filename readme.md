@@ -84,12 +84,6 @@ example of coc-settings.json
 ln -s `readlink -f zshrc-common` ~/.zshrc-common
 ```
 
-or on mac
-
-```
-ln -s `greadlink -f zshrc-common` ~/.zshrc-common
-```
-
 0. Add this to .zshrc
 
 DON'T ADD TO .zprofile. It doesn't work for some reason.
@@ -103,13 +97,6 @@ source "${ZDOTDIR:-$HOME}/.zshrc-common"
 ```
 ln -s `readlink -f .tmux.conf` ~/.tmux.conf
 ```
-
-or on mac
-
-```
-ln -s `greadlink -f .tmux.conf` ~/.tmux.conf
-```
-
 
 if tmux flickers, remove uptime from powerline config
 
