@@ -37,6 +37,17 @@ brew install git tmux vim zsh coreutils
 0. install [powerline](https://powerline.readthedocs.io/en/latest/) ([github](https://github.com/powerline/powerline))
 0. install [hack nerd font mono](https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts)
 
+Edit `$PIP3_DIR/powerline/config_files/themes/tmux/default.json` to hide hostname unless SSH.
+
+```
+      {
+        "function": "powerline.segments.common.net.hostname",
+        "args": {
+          "only_if_ssh": true
+        }
+      }
+```
+
 ## vim
 
 1. clone repo
