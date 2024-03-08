@@ -12,7 +12,7 @@ export PATH="~/Library/Python/3.9/bin/:$PATH"
 # https://www.reddit.com/r/zsh/comments/j71qai/controld_control/
 setopt ignore_eof
 
-export PIP3_DIR=`pip3 show powerline-status | grep -oE "[^\ ]+/site-packages"`
+export PIP3_DIR=`pipx runpip powerline-status show powerline-status | grep -oE "[^\ ]+/site-packages"`
 export POWERLINE_CONFIG="$PIP3_DIR/powerline/bindings/tmux/powerline.conf"
 
 if [ ! -f $POWERLINE_CONFIG ]; then
@@ -35,3 +35,8 @@ export LESS="$LESS --quit-if-one-screen"
 export GIT_CONFIG_GLOBAL="$DOTFILES/gitconfig"
 
 export REPOS="~/repos"
+
+# can't use "Application Support" dir on mac
+# https://github.com/pypa/pipenv/issues/2321
+#
+export PIPX_HOME="$HOME/.local/pipx"

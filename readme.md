@@ -33,14 +33,9 @@ brew install git tmux vim zsh coreutils
 
 ## powerline
 
+0. install [pipx](https://github.com/pypa/pipx)
 0. install [powerline](https://powerline.readthedocs.io/en/latest/) ([github](https://github.com/powerline/powerline))
 0. install [hack nerd font mono](https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts)
-
-Find install directory and update tmux.conf
-
-```
-pip3 show powerline-status
-```
 
 ## vim
 

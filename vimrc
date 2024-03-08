@@ -73,6 +73,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
   Plug 'easymotion/vim-easymotion'
+
+  Plug 'mustache/vim-mustache-handlebars'
 call plug#end()
 
 let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-json', 'coc-java' ]

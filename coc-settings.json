@@ -11,11 +11,13 @@
     "glsl",
     "frag.glsl",
     "vert.glsl",
-    "python"
+    "python",
+    "handlebars"
   ],
   "typescript.suggest.autoImports": true,
   "svelte.enable-ts-plugin": true,
   "tsserver.useLocalTsdk": true,
+  "tsserver.pluginPaths": ["/Users/tyler/repos/sim-v4/node_modules"],
   "languageserver": {
     "glsl": {
       "command": "/Users/tyler/glsl-language-server/build/glslls",
