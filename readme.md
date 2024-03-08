@@ -48,6 +48,8 @@ Edit `$PIP3_DIR/powerline/config_files/themes/tmux/default.json` to hide hostnam
       }
 ```
 
+On MacOS, uptime is broken (haven't looked into why) and causes tmux status line to flicker. Remove it from config above.
+
 ## vim
 
 1. clone repo
@@ -103,8 +105,6 @@ source "${ZDOTDIR:-$HOME}/.zshrc-common"
 ```
 ln -s `readlink -f .tmux.conf` ~/.tmux.conf
 ```
-
-if tmux flickers, remove uptime from powerline config
 
 ## node
 
