@@ -75,9 +75,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'easymotion/vim-easymotion'
 
   Plug 'mustache/vim-mustache-handlebars'
+
+  Plug 'github/copilot.vim'
 call plug#end()
 
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier', 'coc-json', 'coc-java' ]
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-prettier-dev', 'coc-json', 'coc-java' ]
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
